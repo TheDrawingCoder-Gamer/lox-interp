@@ -22,7 +22,7 @@ class LoxClass implements LoxCallable implements LoxHasMembers {
 				case FVVar(init):
 					this.fields.set(field.name, {access: field.access, name: field.name, value: RFVVar(eval.evalExpr(init))});
 				case FVFun(fun):
-					this.fields.set(field.name, {access: field.access, name: field.name, value: RFVFun(new LoxFunction(fun, null))});
+					this.fields.set(field.name, {access: field.access, name: field.name, value: RFVFun(new LoxFunction(fun, eval.enviroment))});
 			}
 		}
 		this.singleton = new LoxMetaclass(this);

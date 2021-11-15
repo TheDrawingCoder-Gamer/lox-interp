@@ -198,6 +198,9 @@ class Evaluator {
 				// Haxe gods smile as I throw whatever I want
 				throw new Return(evalExpr(value));
 			case EClass(name, fields, superclass):
+                if (isInline) {
+                    throw new RuntimeException(expr.pos, "Can't define class in inline context");
+                }
 				enviroment.define(name, null);
 				var goodFields:Map<String, ClassField> = [];
 				for (field in fields) {
