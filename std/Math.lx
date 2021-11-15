@@ -8,6 +8,9 @@ class Math {
     static fun abs(a) {
         return if (a < 0) -a else a;
     }
+    static fun clamp(v, min, max) {
+        return Math.min(max, Math.max(min, v));
+    }
 }
 
 export Math;

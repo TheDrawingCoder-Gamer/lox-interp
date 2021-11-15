@@ -1,6 +1,6 @@
 class SomeHelper {
     static fun printsomething() {
-        return "world";
+        print("world");
     }
 }
 
