@@ -2,6 +2,10 @@ package lxinterp;
 
 import lxinterp.Expr;
 
+typedef LxFile = {
+    var lxpackage:Array<String>;
+    var exprs:Array<Expr>;
+}
 class Parser {
 	final tokens:Array<Token>;
 	var current:Int = 0;
@@ -10,9 +14,11 @@ class Parser {
 		this.tokens = tokens;
 	}
 
-	public function parse():Array<Expr> {
+	public function parse():Null<LxFile> {
 		try {
+
 			var exprs = [];
+            var lxpackage = packageDecl();
 			while (!isAtEnd()) {
 				var expr:Expr = expression(false);
 				switch (expr.type) {
@@ -23,12 +29,25 @@ class Parser {
 				}
 				exprs.push(expr);
 			}
-			return exprs;
+			return {lxpackage: lxpackage, exprs: exprs};
 		} catch (e:ParseError) {
 			return null;
 		}
 	}
+    private function packageDecl() {
+        consume(TPackage, "Expect 'package' keyword.");
+        var path = [];
 
+        if (match(TIdentifier)) {
+            var name = previous();
+            path = [name.lexeme];
+            while (match(TDot)) {
+                path.push(consume(TIdentifier, "Expect identifier after '.'.").lexeme);
+            }
+        }
+        consume(TSemicolon, "Expect ';' after package declaration.");
+        return path;
+    }
 	private function expression(isInline:Bool):Expr {
 		switch (peek().type) {
 			case TClass | TFun | TVar | TFor | TIf | TReturn | TWhile | TImport | TExport | TLBrace:

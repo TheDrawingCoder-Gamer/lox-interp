@@ -1,4 +1,6 @@
-import SomeHelper from "./SomeImportantHelper.lx";
+package;
+// Namespace, then Class
+import SomeImportantHelper.SomeHelper;
 
 class Main {
     static fun main() {
@@ -6,5 +8,3 @@ class Main {
         SomeHelper.printsomething();
     }
 }
-
-Main.main();

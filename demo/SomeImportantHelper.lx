@@ -1,7 +1,8 @@
+package;
+
 class SomeHelper {
     static fun printsomething() {
         print("world");
     }
 }
 
-export SomeHelper;

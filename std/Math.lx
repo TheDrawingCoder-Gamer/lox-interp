@@ -1,3 +1,5 @@
+package;
+
 class Math {
     static fun max(a, b) {
         return if (a > b) a else b;
@@ -12,5 +14,3 @@ class Math {
         return Math.min(max, Math.max(min, v));
     }
 }
-
-export Math;

@@ -66,6 +66,7 @@ enum TokenType {
 	TImport;
 	TExport;
 	TFrom;
+    TPackage;
 	// For any keyword we would like to use in the future
 	// But currently has no use
 	TReserved;

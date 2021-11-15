@@ -1,4 +1,4 @@
-program ::= (expression ";")* EOF 
+program ::= "package" typepath? ";" (expression ";")* EOF 
 
 fauxDeclaration ::= classDecl | funDecl | varDecl | fauxStatement
 classDecl ::= "class" IDENTIFIER ("extends" IDENTIFIER)? "{" ( member)*"}"
@@ -37,6 +37,7 @@ elements ::= expression | expression "," elements
 function ::= IDENTIFIER "(" parameters? ")" block 
 parameters ::= IDENTIFIER ("," IDENTIFIER)* 
 arguments ::= expression ("," expression)*
+typepath ::= IDENTIFIER ("." IDENTIFIER)*
 member ::= access* ("fun" function| varDecl)
 access ::= "private" | "public" | "dynamic" | "static" | "override"
 NUMBER ::= DIGIT+ ("." DIGIT+)?

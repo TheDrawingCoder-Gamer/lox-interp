@@ -42,6 +42,7 @@ class Lexer {
 		"implements" => TReserved,
 		"signs" => TReserved,
 		"abstract" => TReserved,
+        "package" => TPackage,
 		"None" => TNone
 	];
 
@@ -57,6 +58,7 @@ class Lexer {
 	}
 
 	public function tokenize() {
+        
 		while (!isAtEnd()) {
 			var c = consume();
 			switch (c) {
