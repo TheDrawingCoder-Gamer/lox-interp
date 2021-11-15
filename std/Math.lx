@@ -1,0 +1,13 @@
+class Math {
+    static fun max(a, b) {
+        return if (a > b) a else b;
+    }
+    static fun min(a, b) {
+        return if (a < b) a else b;
+    }
+    static fun abs(a) {
+        return if (a < 0) -a else a;
+    }
+}
+
+export Math;

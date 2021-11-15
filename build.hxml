@@ -1,0 +1,4 @@
+-cp src
+--main lxinterp.Lox
+-D warn-var-shadowing
+--hl run.hl

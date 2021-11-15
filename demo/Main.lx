@@ -1,0 +1,10 @@
+import SomeHelper from "./SomeImportantHelper.lx";
+var egg = 1;
+class Main {
+    static fun main() {
+        egg;
+
+    }
+}
+
+Main.main();

@@ -1,0 +1,7 @@
+class SomeHelper {
+    static fun printsomething() {
+        return "world";
+    }
+}
+
+export SomeHelper;
