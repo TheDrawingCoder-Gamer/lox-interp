@@ -28,8 +28,8 @@ enum ExprType {
 	ESuper(name:String);
 	EArrayAccess(e:Expr, index:Expr);
 	ENone;
-	EImport(id:String, from:String);
-	EExport(evarname:String);
+	// EImport(id:String, from:String);
+	// EExport(evarname:String);
 }
 
 enum UnitType {

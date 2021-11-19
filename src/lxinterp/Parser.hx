@@ -38,7 +38,7 @@ class Parser {
 				return assignment();
 		}
 	}
-
+	/*
 	function importStatement() {
 		var importToken = previous();
 		var id = consume(TIdentifier, "Expect name after 'import'");
@@ -52,7 +52,7 @@ class Parser {
 		var name = consume(TIdentifier, "Expect identifier after 'export'");
 		return new Expr(EExport(name.literal), exportToken.position);
 	}
-
+	*/
 	function assignment():Expr {
 		var expr = or();
 		if (match(TEquals)) {
@@ -270,10 +270,12 @@ class Parser {
 				return returnStatement();
 			case TWhile:
 				return whileStatement();
+			/*
 			case TImport:
 				return importStatement();
 			case TExport:
 				return exportStatement();
+			*/
 			case TLBrace:
 				return block();
 			default:
