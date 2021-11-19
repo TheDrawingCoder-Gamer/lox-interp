@@ -212,7 +212,7 @@ class Parser {
 				consume(TDot, "Expect '.' after super");
 				var id = consume(TIdentifier, "Expect superclass method name.");
 				return new Expr(ESuper(id.literal), id.position);
-			case TLBracket:
+			case TNewArray:
 				return array();
 			case TObjOpen:
 				return object();

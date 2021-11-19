@@ -91,6 +91,8 @@ class Lexer {
 				case "!":
 					if (match("="))
 						addToken(TBangEquals)
+					else if (match("["))
+						addToken(TNewArray);
 					else
 						addToken(TBang);
 				case "=":

@@ -252,7 +252,13 @@ class Evaluator {
 		if (e == UTNone) {
 			return "None";
 		}
-		return Std.string(e);
+		switch (Type.typeof(e)) {
+			case TClass(Array):
+				return "!" + Std.string(e); 
+			default:
+				return Std.string(e);
+		}
+		
 	}
 }
 

@@ -73,4 +73,5 @@ enum TokenType {
 	TString;
 	TIdentifier;
 	TEof;
+	TNewArray;
 }
