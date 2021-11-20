@@ -51,7 +51,7 @@ enum TokenType {
 	TMinus;
 	TStar;
 	TSlash;
-	TBang;
+	TNot;
 	TTrue;
 	TFalse;
 	TNil;

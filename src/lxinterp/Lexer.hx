@@ -31,7 +31,7 @@ class Lexer {
 		"in" => TReserved,
 		"as" => TReserved,
 		"is" => TReserved,
-		"not" => TReserved,
+		"not" => TNot,
 		"new" => TReserved,
 		"match" => TReserved,
 		"case" => TReserved,
@@ -42,7 +42,7 @@ class Lexer {
 		"implements" => TReserved,
 		"signs" => TReserved,
 		"abstract" => TReserved,
-		"None" => TNone
+		"None" => TNone,
 	];
 
 	final src:String;
@@ -94,7 +94,7 @@ class Lexer {
 					else if (match("["))
 						addToken(TNewArray);
 					else
-						addToken(TBang);
+						addToken(TNot);
 				case "=":
 					if (match("="))
 						addToken(TEqualsEquals)

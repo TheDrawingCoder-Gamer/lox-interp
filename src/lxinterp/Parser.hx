@@ -143,10 +143,10 @@ class Parser {
 	}
 
 	function unary() {
-		if (match(TBang, TMinus)) {
+		if (match(TNot, TMinus)) {
 			var op = previous();
 			var right = unary();
-			return new Expr(EUnop(op.type == TBang ? UNot : UNegate, right), op.position);
+			return new Expr(EUnop(op.type == TNot ? UNot : UNegate, right), op.position);
 		}
 		return call();
 	}
